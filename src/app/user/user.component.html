@@ -1,0 +1,12 @@
+<ul id="users">
+  @for ( user of users; track user) {
+    <li>
+      <div>
+        <button (click)="onSelectUser(user)">
+          <img [src]="'assets/users/'+user.avatar" alt="">
+          <span> {{ user.name }}</span> 
+        </button>
+      </div>
+    </li>
+  }
+  </ul>
