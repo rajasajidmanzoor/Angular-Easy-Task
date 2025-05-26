@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { isStandalone } from '@angular/core';
 
@@ -10,10 +10,10 @@ import { isStandalone } from '@angular/core';
 })
 export class UserComponent implements OnInit {
   random:number = 0;
-  selectedUser: any = '';
+  selectedUser: any = signal(DUMMY_USERS[0]); // Initialize Signal
   users: any[] = [];
   constructor() { 
-    this.randomUser();
+    // this.randomUser();
   }
 
   get imagePath() {
@@ -22,7 +22,8 @@ export class UserComponent implements OnInit {
 
   onSelectUser(user:any)  {
     console.log('Selected user:');
-    console.log(user);
+    this.selectedUser.set(user) ; // Set value of the signal
+    console.log(this.selectedUser()); // use as a method to get the value of the signal
     //this.randomUser();
   }
   randomUser() {
