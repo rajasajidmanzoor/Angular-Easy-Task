@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,  EventEmitter, OnInit, Output, signal } from '@angular/core';
+import { DUMMY_USERS } from './dummy-users'; // Adjust the import path as necessary
 
 @Component({
     selector: 'app-root',
@@ -8,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'easy-task';
+  users: any[] = [];
+  selectedUser: any;
+
+  ngOnInit(): void {
+    this.users = this.getallUsers();
+    this.selectedUser = this.users[0];
+  }
+
+  getallUsers() {
+    return DUMMY_USERS;
+  }
+
+  onUserSelected(user: any) {
+    console.log('User selected in AppComponent:', user);
+    this.selectedUser = user;
+  }
+    
 }

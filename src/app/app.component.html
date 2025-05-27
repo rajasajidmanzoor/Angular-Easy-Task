@@ -1,4 +1,5 @@
 <app-header></app-header>
 <main>
-  <app-user></app-user>
+  <app-user [users]="users" (select)="onUserSelected($event)"></app-user>
+  <app-tasks [user]="selectedUser"></app-tasks>
 </main>
