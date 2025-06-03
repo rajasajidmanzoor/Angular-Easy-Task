@@ -1,5 +1,9 @@
 <app-header></app-header>
 <main>
   <app-user [users]="users" (select)="onUserSelected($event)"></app-user>
-  <app-tasks [user]="selectedUser"></app-tasks>
+  @if(selectedUser) {
+    <app-tasks [user]="selectedUser"></app-tasks>
+  } @else {
+      <p> Select a user first!</p>    
+  }
 </main>

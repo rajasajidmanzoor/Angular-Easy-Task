@@ -1,5 +1,5 @@
 <ul id="users">
-  @for ( user of users; track user) {
+  @for ( user of users; track user.id) {
     <li>
       <div>
         <button (click)="onSelectUser(user)">

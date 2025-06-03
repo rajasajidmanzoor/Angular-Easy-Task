@@ -2,6 +2,13 @@ import { Component, EventEmitter, OnInit, Output, Input, signal } from '@angular
 import { DUMMY_USERS } from '../dummy-users';
 import { isStandalone } from '@angular/core';
 
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+
+}
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -9,7 +16,7 @@ import { isStandalone } from '@angular/core';
   standalone: false,
 })
 export class UserComponent implements OnInit {
-  @Input({ required: true }) users: any;
+  @Input({ required: true }) users!: any;
   @Output() select = new EventEmitter();
 
   constructor() { 

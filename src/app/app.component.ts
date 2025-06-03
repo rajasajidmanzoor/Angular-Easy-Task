@@ -10,11 +10,11 @@ import { DUMMY_USERS } from './dummy-users'; // Adjust the import path as necess
 export class AppComponent {
   title = 'easy-task';
   users: any[] = [];
-  selectedUser: any;
+  selectedUser?: any;
 
   ngOnInit(): void {
     this.users = this.getallUsers();
-    this.selectedUser = this.users[0];
+    // this.selectedUser?:any = null;
   }
 
   getallUsers() {
