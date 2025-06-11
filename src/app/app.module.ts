@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { TasksComponent } from './tasks/tasks.component';
-import { TaskComponent } from './tasks/task/task.component'; // Import TaskComponent if needed in TasksComponent
+import { TaskComponent } from './tasks/task/task.component'; 
+import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { CardComponent } from './shared/card/card.component';
+import { TasksService } from './tasks/tasks.service';
 
 @NgModule({
   declarations: [
@@ -13,12 +17,15 @@ import { TaskComponent } from './tasks/task/task.component'; // Import TaskCompo
     HeaderComponent,
     UserComponent,
     TasksComponent,
-    TaskComponent
+    TaskComponent,
+    NewTaskComponent,
+    CardComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,    
+    FormsModule,
   ],
-  providers: [],
+  providers: [TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

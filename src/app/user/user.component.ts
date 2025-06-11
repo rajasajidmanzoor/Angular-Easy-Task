@@ -1,13 +1,8 @@
 import { Component, EventEmitter, OnInit, Output, Input, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { isStandalone } from '@angular/core';
+import { type NewTaskData, type User } from '../datatypes.model';
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-
-}
 
 @Component({
   selector: 'app-user',
@@ -22,7 +17,7 @@ export class UserComponent implements OnInit {
   constructor() { 
   }
 
-  onSelectUser(user:any)  {
+  onSelectUser(user:User)  {
     // this.selectedUser.set(user) ; // Set value of the signal
     // console.log(this.selectedUser()); // use as a method to get the value of the signal
     this.select.emit(user);
